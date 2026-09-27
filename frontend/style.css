@@ -1,0 +1,554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #f5f7fa;
+
+    color: #333;
+
+    padding: 40px;
+}
+
+
+.container {
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+
+/* -----------------------------------
+   Hero
+------------------------------------ */
+
+.hero {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.hero h1 {
+    margin-bottom: 10px;
+
+    color: #1f2937;
+}
+
+
+.hero p {
+    color: #6b7280;
+
+    line-height: 1.5;
+}
+
+
+/* -----------------------------------
+   Cards
+------------------------------------ */
+
+.upload-card,
+.results {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.08);
+
+    margin-bottom: 25px;
+}
+
+
+.upload-card h2,
+.results h2 {
+    margin-bottom: 15px;
+}
+
+
+/* -----------------------------------
+   Form elements
+------------------------------------ */
+
+.input-section {
+    width: 100%;
+}
+
+
+.input-section label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+
+    color: #374151;
+}
+
+
+select,
+textarea {
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+
+input[type="file"] {
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+
+.input-section h3 {
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+
+    color: #374151;
+}
+
+
+/* -----------------------------------
+   Divider
+------------------------------------ */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    margin: 25px 0;
+
+    color: #6b7280;
+
+    font-weight: bold;
+}
+
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #d1d5db;
+}
+
+
+.divider span {
+    margin: 0 15px;
+}
+
+
+/* -----------------------------------
+   Buttons
+------------------------------------ */
+
+button {
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+
+#recordBtn,
+#stopBtn,
+#analyseBtn {
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+
+#recordBtn {
+    background-color: #dc2626;
+}
+
+
+#recordBtn:hover {
+    background-color: #b91c1c;
+}
+
+
+#stopBtn {
+    background-color: #6b7280;
+}
+
+
+#stopBtn:hover {
+    background-color: #4b5563;
+}
+
+
+button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* -----------------------------------
+   Recording
+------------------------------------ */
+
+#recordingStatus {
+    margin-top: 15px;
+
+    font-weight: bold;
+
+    color: #dc2626;
+}
+
+
+#timer {
+    font-size: 2rem;
+
+    text-align: center;
+
+    margin: 15px 0;
+
+    font-weight: bold;
+
+    color: #111827;
+}
+
+
+#videoPreview {
+    width: 100%;
+
+    max-width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    display: block;
+
+    margin-top: 16px;
+
+    border-radius: 8px;
+
+    object-fit: cover;
+
+    background-color: #111827;
+}
+
+
+/* -----------------------------------
+   Analyse section
+------------------------------------ */
+
+.analyse-card {
+    text-align: center;
+}
+
+
+.analyse-description {
+    margin: 10px 0 20px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+}
+
+
+#status {
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+
+/* -----------------------------------
+   Results
+------------------------------------ */
+
+.results h3 {
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+/* -----------------------------------
+   Modality scores
+------------------------------------ */
+
+.score-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin: 20px 0;
+}
+
+
+.score-card {
+    padding: 20px;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+.text-card {
+    background-color: #dbeafe;
+}
+
+
+.speech-card {
+    background-color: #dcfce7;
+}
+
+
+.visual-card {
+    background-color: #fef3c7;
+}
+
+
+.score-card h3 {
+    margin-top: 0;
+
+    margin-bottom: 10px;
+}
+
+
+.score-card p {
+    font-size: 1.5rem;
+
+    font-weight: bold;
+}
+
+
+/* -----------------------------------
+   Text vs multimodal comparison
+------------------------------------ */
+
+.fusion-section {
+    margin-top: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.fusion-section h3 {
+    margin-bottom: 8px;
+}
+
+
+.fusion-intro {
+    margin-bottom: 15px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+}
+
+
+.fusion-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.fusion-card {
+    padding: 24px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    background-color: #f9fafb;
+
+    text-align: center;
+}
+
+
+.multimodal-fusion-card {
+    background-color: #f8fafc;
+}
+
+
+.fusion-card h4 {
+    margin-bottom: 10px;
+
+    color: #374151;
+}
+
+
+.fusion-card p {
+    font-size: 1.7rem;
+
+    font-weight: bold;
+
+    color: #111827;
+}
+
+
+.fusion-description {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 0.85rem;
+
+    color: #6b7280;
+}
+
+
+/* -----------------------------------
+   Detailed analysis
+------------------------------------ */
+
+.detailed-analysis {
+    margin-top: 30px;
+}
+
+
+.metric-sections {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-top: 15px;
+}
+
+
+.metric-panel {
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    background-color: #f9fafb;
+}
+
+
+.metric-panel h4 {
+    margin-bottom: 15px;
+
+    color: #1f2937;
+}
+
+
+.metric-row {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 10px 0;
+
+    border-bottom:
+        1px solid #e5e7eb;
+}
+
+
+.metric-row:last-child {
+    border-bottom: none;
+}
+
+
+.metric-row span {
+    color: #6b7280;
+}
+
+
+.metric-row strong {
+    color: #111827;
+
+    text-align: right;
+}
+
+
+/* -----------------------------------
+   Feedback
+------------------------------------ */
+
+ul {
+    padding-left: 20px;
+}
+
+
+li {
+    margin-bottom: 8px;
+}
+
+
+/* -----------------------------------
+   Utilities
+------------------------------------ */
+
+.hidden {
+    display: none;
+}
+
+
+/* -----------------------------------
+   Responsive
+------------------------------------ */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px;
+    }
+
+
+    .score-grid,
+    .fusion-grid,
+    .metric-sections {
+        grid-template-columns: 1fr;
+    }
+}

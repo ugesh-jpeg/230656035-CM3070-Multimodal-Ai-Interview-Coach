@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Multimodal AI Interview Coach
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- Header -->
+
+        <section class="hero">
+
+            <h1>
+                Multimodal AI Interview Coach
+            </h1>
+
+            <p>
+                Select an interview question and submit
+                a video response to receive an automated
+                transcript, performance scores,
+                multimodal analysis and coaching feedback.
+            </p>
+
+        </section>
+
+
+        <!-- Interview Question -->
+
+        <section class="upload-card">
+
+            <h2>
+                Interview Question
+            </h2>
+
+            <div class="input-section">
+
+                <label for="questionSelect">
+                    Select a common interview question
+                </label>
+
+                <select id="questionSelect">
+
+                    <option value="">
+                        Loading interview questions...
+                    </option>
+
+                </select>
+
+
+                <div
+                    id="customQuestionContainer"
+                    class="hidden"
+                >
+
+                    <label for="customQuestion">
+                        Custom interview question
+                    </label>
+
+                    <textarea
+                        id="customQuestion"
+                        rows="4"
+                        placeholder="Enter the interview question that corresponds to the recording."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Video Input -->
+
+        <section class="upload-card">
+
+            <h2>
+                Choose Interview Response Source
+            </h2>
+
+            <div class="input-section">
+
+                <h3>
+                    Option 1: Upload Video File
+                </h3>
+
+                <input
+                    type="file"
+                    id="mediaFile"
+                    accept="video/*"
+                >
+
+
+                <div class="divider">
+
+                    <span>
+                        OR
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Option 2: Record Video Response
+                </h3>
+
+
+                <button
+                    id="recordBtn"
+                    type="button"
+                >
+                    Start Recording
+                </button>
+
+
+                <button
+                    id="stopBtn"
+                    type="button"
+                    disabled
+                >
+                    Stop Recording
+                </button>
+
+
+                <p id="recordingStatus">
+                    Not Recording
+                </p>
+
+
+                <p id="timer">
+                    00:00
+                </p>
+
+
+                <video
+                    id="videoPreview"
+                    controls
+                    playsinline
+                    class="hidden"
+                >
+                    Your browser does not support
+                    video playback.
+                </video>
+
+            </div>
+
+        </section>
+
+
+        <!-- Analyse -->
+
+        <section class="upload-card analyse-card">
+
+            <h2>
+                Analyse Interview Response
+            </h2>
+
+            <p class="analyse-description">
+                The selected question and video response
+                will be submitted to the multimodal
+                interview analysis pipeline.
+            </p>
+
+            <button
+                id="analyseBtn"
+                type="button"
+            >
+                Analyse Response
+            </button>
+
+            <p id="status"></p>
+
+        </section>
+
+
+        <!-- Results -->
+
+        <section
+            id="results"
+            class="results hidden"
+        >
+
+            <h2>
+                Analysis Results
+            </h2>
+
+
+            <!-- Question -->
+
+            <h3>
+                Interview Question
+            </h3>
+
+            <p id="submittedQuestion">
+                No question selected.
+            </p>
+
+
+            <!-- Transcript -->
+
+            <h3>
+                Transcript
+            </h3>
+
+            <p id="transcript">
+                No transcript available.
+            </p>
+
+
+            <!-- Modality Scores -->
+
+            <div class="score-grid">
+
+                <div class="score-card text-card">
+
+                    <h3>
+                        Text Score
+                    </h3>
+
+                    <p id="textScore">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="score-card speech-card">
+
+                    <h3>
+                        Speech Score
+                    </h3>
+
+                    <p id="speechScore">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="score-card visual-card">
+
+                    <h3>
+                        Visual Score
+                    </h3>
+
+                    <p id="visualScore">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Research Comparison -->
+
+            <div class="fusion-section">
+
+                <h3>
+                    Feedback Configuration Comparison
+                </h3>
+
+                <p class="fusion-intro">
+                    Comparison between the text-only
+                    baseline and the full multimodal
+                    configuration.
+                </p>
+
+
+                <div class="fusion-grid">
+
+                    <div class="fusion-card">
+
+                        <h4>
+                            Text Only
+                        </h4>
+
+                        <p id="textOnlyScore">
+                            -
+                        </p>
+
+                        <span class="fusion-description">
+                            Text
+                        </span>
+
+                    </div>
+
+
+                    <div class="fusion-card multimodal-fusion-card">
+
+                        <h4>
+                            Full Multimodal
+                        </h4>
+
+                        <p id="multimodalScore">
+                            -
+                        </p>
+
+                        <span class="fusion-description">
+                            Text + Speech + Visual
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Detailed Analysis -->
+
+            <div class="detailed-analysis">
+
+                <h3>
+                    Detailed Analysis
+                </h3>
+
+
+                <div class="metric-sections">
+
+
+                    <!-- Text Metrics -->
+
+                    <div class="metric-panel">
+
+                        <h4>
+                            Text Metrics
+                        </h4>
+
+
+                        <div class="metric-row">
+                            <span>Word Count</span>
+                            <strong id="wordCount">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Sentence Count</span>
+                            <strong id="sentenceCount">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Filler Words</span>
+                            <strong id="fillerWords">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Length Score</span>
+                            <strong id="lengthScore">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Structure Score</span>
+                            <strong id="structureScore">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Clarity Score</span>
+                            <strong id="clarityScore">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Relevance Score</span>
+                            <strong id="relevanceScore">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Question Relevance</span>
+                            <strong id="relevanceLabel">-</strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Speech Metrics -->
+
+                    <div class="metric-panel">
+
+                        <h4>
+                            Speech Metrics
+                        </h4>
+
+
+                        <div class="metric-row">
+                            <span>Duration</span>
+                            <strong id="durationSeconds">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Speaking Rate</span>
+                            <strong id="speakingRate">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Pause Count</span>
+                            <strong id="pauseCount">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Pauses per Minute</span>
+                            <strong id="pauseFrequency">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Average Pause</span>
+                            <strong id="averagePause">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Longest Pause</span>
+                            <strong id="longestPause">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Silence Ratio</span>
+                            <strong id="silenceRatio">-</strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Visual Metrics -->
+
+                    <div class="metric-panel">
+
+                        <h4>
+                            Visual Metrics
+                        </h4>
+
+
+                        <div class="metric-row">
+                            <span>Face Detection</span>
+                            <strong id="faceDetectionRatio">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Face Centring</span>
+                            <strong id="faceCenteredRatio">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Head Stability</span>
+                            <strong id="headStability">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Frames Analysed</span>
+                            <strong id="sampledFrames">-</strong>
+                        </div>
+
+
+                        <div class="metric-row">
+                            <span>Face Detected Frames</span>
+                            <strong id="faceDetectedFrames">-</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feedback -->
+
+            <h3>
+                Performance Band
+            </h3>
+
+            <p id="performanceBand">
+                -
+            </p>
+
+
+            <div
+                id="aiSummarySection"
+                class="hidden"
+            >
+
+                <h3>
+                    Coaching Summary
+                </h3>
+
+                <p id="aiSummary"></p>
+
+            </div>
+
+
+            <h3>
+                Strengths
+            </h3>
+
+            <ul id="strengths"></ul>
+
+
+            <h3>
+                Weaknesses
+            </h3>
+
+            <ul id="weaknesses"></ul>
+
+
+            <h3>
+                Suggested Improvements
+            </h3>
+
+            <ul id="improvements"></ul>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

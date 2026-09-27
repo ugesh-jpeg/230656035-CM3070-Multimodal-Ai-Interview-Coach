@@ -1,0 +1,53 @@
+[
+    {
+        "category": "General",
+        "question": "Tell me about yourself.",
+        "expected_answer": "The candidate should introduce themselves and describe their educational background, relevant experience, technical or professional skills, significant projects or achievements, areas of interest and future career goals.",
+        "expected_topics": [
+            "personal introduction",
+            "educational background",
+            "relevant experience",
+            "technical or professional skills",
+            "projects or achievements",
+            "career interests or goals"
+        ]
+    },
+    {
+        "category": "Behavioural",
+        "question": "Tell me about a challenge you overcame.",
+        "expected_answer": "The response should describe a specific challenge, explain why it was difficult, outline the actions taken to address it and describe the result, achievement or lesson learned.",
+        "expected_topics": [
+            "specific challenge",
+            "difficulty or obstacle",
+            "actions taken",
+            "result or achievement",
+            "lesson learned"
+        ]
+    },
+    {
+        "category": "Leadership",
+        "question": "Describe a time you led a team.",
+        "expected_answer": "The response should describe a specific team situation, the candidate's leadership responsibility, how tasks and communication were managed, how challenges were addressed and what outcome the team achieved.",
+        "expected_topics": [
+            "team situation",
+            "leadership responsibility",
+            "task management",
+            "team communication",
+            "challenges addressed",
+            "team outcome"
+        ]
+    },
+    {
+        "category": "Problem Solving",
+        "question": "Describe how you approach a difficult technical problem.",
+        "expected_answer": "The candidate should explain a structured problem-solving process involving understanding the problem, gathering information, breaking it into smaller parts, considering possible solutions, testing an approach and reviewing the result.",
+        "expected_topics": [
+            "understanding the problem",
+            "gathering information",
+            "breaking the problem into smaller parts",
+            "considering solutions",
+            "testing a solution",
+            "reviewing the result"
+        ]
+    }
+]

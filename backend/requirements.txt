@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+python-multipart
+openai-whisper
+librosa
+numpy==1.26.4
+transformers
+torch
+pydantic
+soundfile
+ollama
+sentence-transformers
+mediapipe==0.10.21
+opencv-contrib-python==4.11.0.86
+pytest
